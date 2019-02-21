@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -10,7 +11,6 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
-  selectedHero: Hero;
 
   constructor(private heroService: HeroService) { }
   // The parameter simultaneously defines a private heroService property
@@ -19,16 +19,6 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
   }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-
-  // getHeroes(): void {
-  //   this.heroes = this.heroService.getHeroes();
-  //   // This would not work in a real app.
-  //   //Getting away with it because of the mocks
-  // }
 
   getHeroes(): void {
     this.heroService.getHeroes()
